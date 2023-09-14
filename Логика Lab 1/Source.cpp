@@ -18,22 +18,22 @@ int main() {
 	string namepoisk, familpoisk, facultpoisk, Nomstudpoisk;
 
 	int v = 0;
-	while (v != 1 && v != 2) {
+	while (v != 1 && v != 2) { 
 		cout << "Выберите:\n1 - работа с массивом\n2 - работа со структурой\n";
 		cin >> v;
 	}
-	if (v == 1) {
+	if (v == 1) { // Задание 1-4
 		int size1 = 0, size2 = 0;
 		int** mas;
 		while (size1 < 1) {
-			cout << "Введите число строк: ";
+			cout << "Введите число столбцов: ";
 			cin >> size1;
 		}
 		while (size2 < 1) {
 			cout << "Введите число строк: ";
 			cin >> size2;
 		}
-		mas = new int* [size1];
+		mas = new int* [size1]; // создаём двумерный массив 
 		for (int i = 0; i < size1; i++) {
 			mas[i] = new int[size2];
 		}
@@ -41,7 +41,7 @@ int main() {
 		cout << "Выберите, как вводить массив:\n1 - заполнить массив рандомными числами \n2 - заполнить вручную \n";
 		int vibor;
 		cin >> vibor;
-		if (vibor == 1) {
+		if (vibor == 1) { // заполняем массив случайными числами 
 			for (int i = 0; i < size1; i++) {
 				for (int o = 0; o < size2; o++) {
 					mas[i][o] = rand() % 100 - 50;
@@ -51,7 +51,7 @@ int main() {
 			}
 
 		}
-		else if (vibor == 2) {
+		else if (vibor == 2) { // заполняем массив в ручную 
 			for (int i = 0; i < size1; i++) {
 				for (int o = 0; o < size2; o++) {
 					cout << "Введите число : ";
@@ -59,7 +59,7 @@ int main() {
 				}
 				cout << "\n";
 			}
-			for (int i = 0; i < size1; i++) {
+			for (int i = 0; i < size1; i++) { // выводим заполненный массив
 				for (int o = 0; o < size2; o++) {
 					cout << mas[i][o] << " ";
 				}
@@ -74,21 +74,21 @@ int main() {
 		for (int i = 0; i < size1; i++) {
 			sum = 0;
 			for (int o = 0; o < size2; o++) {
-				sum = sum + mas[i][o];
-				if (max < mas[i][o]) max = mas[i][o];
+				sum = sum + mas[i][o]; // считаем сумму чисел в строке 
+				if (max < mas[i][o]) max = mas[i][o]; // ищём макс и мин число 
 				if (min > mas[i][o]) min = mas[i][o];
 			}
 			cout << "\n Сумма чисел " << i + 1 << " строки: " << sum << "\n";
 		}
 		cout << "min = " << min << "\nmax = " << max << "\nРазность = " << max - min << "\n";
 	}
-	else {
+	else { // задание 5
 		v = 0;
 		while (v != 1 && v != 2) {
 			cout << "Выберите:\n1 - заполнить самому\n2 - заполнить програмно\n";
 			cin >> v;
 		}
-		if (v == 1) {
+		if (v == 1) { // заполнение элементов структуры вручную 
 			for (int i = 0;i < 5;i++) {
 				cout << "Введите имя " << i + 1 << " студента : ";
 				cin >> stud[i].name;
@@ -101,7 +101,7 @@ int main() {
 				cout << "\n";
 			}
 		}
-		else {
+		else { //  заполнение элементов структуры в программе 
 			stud[0].name = "Ярослав";
 			stud[0].famil = "Китаев";
 			stud[0].facult = "Фвт";
@@ -128,7 +128,7 @@ int main() {
 			stud[4].Nomstud = "666";
 
 		}
-		for (int i = 0;i < 5;i++) {
+		for (int i = 0;i < 5;i++) { // выводим заполненные данные 
 			cout << i + 1 << " студент : \n";
 			cout << "Имя :" << stud[i].name << "\n";
 			cout << "Фамилия :" << stud[i].famil << "\n";
@@ -136,7 +136,7 @@ int main() {
 			cout << "Номер :" << stud[i].Nomstud << "\n";
 			cout << "\n";
 		}
-
+		// вводим параметры для поиска студента 
 		cout << " Поиск студента (если параметр не нужен введите '-') : \n Введите имя : ";
 		cin >> namepoisk;
 		cout << " Введите фамилию : ";
@@ -148,7 +148,7 @@ int main() {
 		int shet = 0;
 		string none = "-";
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) { // осуществляем поиск студента по введённым выше параметрам 
 			shet = 0;
 			if (stud[i].name == namepoisk || namepoisk == none) {
 				shet++;
