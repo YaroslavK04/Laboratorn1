@@ -46,7 +46,7 @@ int main() {
 		if (vibor == 1) { // заполняем массив случайными числами 
 			for (int i = 0; i < size1; i++) {
 				for (int o = 0; o < size2; o++) {
-					mas[i][o] = (rand() % 100 - 50);
+					mas[i][o] = (rand() % 100 - 50)*0.1;
 					cout << mas[i][o] << " ";
 				}
 				cout << "\n";
